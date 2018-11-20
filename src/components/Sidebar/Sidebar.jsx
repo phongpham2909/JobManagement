@@ -60,7 +60,7 @@ class Sidebar extends Component {
     HandleLogOut = (event) => {
         event.preventDefault();
         window.localStorage.removeItem("myAccount");
-        window.location.href = "/login";
+        window.location.href = "/login-page";
     }
     render() {
         return (
@@ -84,7 +84,7 @@ class Sidebar extends Component {
                             My Project
                         </a>
                     </div>
-                    <div className="sidebar-wrapper" ref={this.setSidebarRef}>
+                    <div className="sidebar-wrapper" ref={this.setSidebarRef} >
                         <div className="user">
                             <div className="photo">
                                 <img src={avatar} alt="Avatar" />

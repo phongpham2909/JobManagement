@@ -7,28 +7,28 @@ import { Link } from "react-router-dom";
 
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import { List, ListItem } from "@material-ui/core";
+import { List, ListItem } from "@material-ui/core"
 
 // @material-ui/icons
-import {  Apps, ShoppingBasket, Home, Store } from "@material-ui/icons";
+import Icon from '@material-ui/core/Icon';
+import { Apps } from '@material-ui/icons';
 
 // core components
 import CustomDropdown from "../CustomDropdown/CustomDropdown";
 
 //routes 
-//import MenuRoutesHeaderContent from '../../../routes/Content';
+import routesIndex from "../../../routes/routesContent";
 
 import headerLinksStyle from "../../../assets/jss/material-ui-react/components/headerLinksStyle";
 
-function HeaderLinks({ ...props }) {
-  const easeInOutQuad = (t, b, c, d) => {
+class HeaderLinks extends React.Component {
+  easeInOutQuad = (t, b, c, d) => {
     t /= d / 2;
     if (t < 1) return c / 2 * t * t + b;
     t--;
     return -c / 2 * (t * (t - 2) - 1) + b;
   };
-
-  const smoothScroll = (e, target) => {
+  smoothScroll = (e, target) => {
     if (window.location.pathname === "/sections") {
       var isMobile = navigator.userAgent.match(
         /(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i
@@ -42,7 +42,7 @@ function HeaderLinks({ ...props }) {
       }
     }
   };
-  const scrollGo = (element, to, duration) => {
+  scrollGo = (element, to, duration) => {
     var start = element.scrollTop,
       change = to - start,
       currentTime = 0,
@@ -58,35 +58,36 @@ function HeaderLinks({ ...props }) {
     };
     animateScroll();
   };
-  const { classes, dropdownHoverColor } = props;
-  return (
-    <List className={classes.list + " " + classes.mlAuto}>
-      <ListItem className={classes.listItem}>
-        <CustomDropdown
-          noLiPadding
-          navDropdown
-          hoverColor={dropdownHoverColor}
-          buttonText="Menu"
-          buttonProps={{
-            className: classes.navLink,
-            color: "transparent"
-          }}
-          buttonIcon={Apps}
-          dropdownList={[
-            <Link to="/" className={classes.dropdownLink}>
-              <Home className={classes.dropdownIcons} /> Home
-            </Link>,
-            <Link to="/product" className={classes.dropdownLink}>
-              <Store className={classes.dropdownIcons} /> Products
-            </Link>,
-              <Link to="/product-detail" className={classes.dropdownLink}>
-              <ShoppingBasket className={classes.dropdownIcons} /> Product Detail
-            </Link>
-          ]}
-        />
-      </ListItem>
-    </List>
-  );
+
+  render() {
+    const { classes, dropdownHoverColor } = this.props;
+    return (
+      <List className={classes.list + " " + classes.mlAuto}>
+        <ListItem className={classes.listItem}>
+          <CustomDropdown
+            noLiPadding
+            navDropdown
+            hoverColor={dropdownHoverColor}
+            buttonText="Menu"
+            buttonProps={{
+              className: classes.navLink,
+              color: "transparent"
+            }}
+            buttonIcon={Apps}
+            dropdownList={
+              routesIndex.routesMenu.map((prop, key) => {
+                  return (
+                    <Link key={key} to={prop.path} className={classes.dropdownLink}>
+                      <Icon className={classes.dropdownIcons} >{prop.icon}</Icon> {prop.name}
+                    </Link>
+                  )
+              })
+            }
+          />
+        </ListItem>
+      </List>
+    );
+  }
 }
 
 HeaderLinks.defaultProps = {

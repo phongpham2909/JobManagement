@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 // core components
-import typographyStyle from "assets/jss/material-kit-pro-react/components/typographyStyle.jsx";
+import typographyStyle from "../../../assets/jss/material-ui-react/components/typographyStyle";
 
 function Success({ ...props }) {
   const { classes, children } = props;
@@ -20,8 +20,3 @@ Success.propTypes = {
 };
 
 export default withStyles(typographyStyle)(Success);
-
-
-
-// WEBPACK FOOTER //
-// ./src/components/Typography/Success.jsx

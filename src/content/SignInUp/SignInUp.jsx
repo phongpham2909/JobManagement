@@ -21,7 +21,7 @@ class Content extends Component {
         pageClass = "register-page";
         break;
       case "/admin/lock-screen":
-        pageClass = "lock-screen-page";
+        pageClass = "lock-screen";
         break;
       default:
         pageClass = "";
@@ -56,6 +56,7 @@ class Content extends Component {
                     return (
                       <Route
                         key={key}
+                        exact
                         path={prop.path}
                         component={prop.component}
                       />

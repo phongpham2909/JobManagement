@@ -4,7 +4,7 @@ import classNames from "classnames";
 // react component used to create nice image meadia player
 import ImageGallery from "react-image-gallery";
 // @material-ui/core components
-import { createMuiTheme, MuiThemeProvider, withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import { FormControl, Select, MenuItem, Tooltip } from "@material-ui/core";
 // @material-ui/icons
 import { ShoppingCart, LocalShipping, VerifiedUser, Favorite } from "@material-ui/icons";
@@ -32,7 +32,6 @@ import product2 from "../../assets/img/product/product2.jpg";
 import product3 from "../../assets/img/product/product3.jpg";
 import product4 from "../../assets/img/product/product4.jpg";
 
-const theme = createMuiTheme({ typography: { useNextVariants: true } });
 
 class ProductPage extends Component {
     constructor(props) {
@@ -70,7 +69,6 @@ class ProductPage extends Component {
             }
         ];
         return (
-            <MuiThemeProvider theme={theme}>
             <div className={classes.productPage}>
                 <Parallax
                     image={require("../../assets/img/full-screen-image-4.jpg")}
@@ -455,7 +453,6 @@ class ProductPage extends Component {
                     </div>
                 </div>
             </div>
-            </MuiThemeProvider>
         );
     }
 }

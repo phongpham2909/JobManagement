@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import PerfectScrollbar from "perfect-scrollbar";
 
 //layouts cms
@@ -7,6 +7,9 @@ import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
 import Footer from './components/Footer/Footer';
 import FixedPlugin from './components/FixedPlugin/FixedPlugin';
+//layouts content
+import HeaderContent from './content/Header/HeaderContent';
+import FooterContent from './content/Footer/FooterContent';
 
 //routes
 import MenuRoutes from './routes/RouterMenu';
@@ -153,15 +156,29 @@ class App extends Component {
     } else {
       if (this.state.logged === false) {
         _content.push(
-          routesContents.routesIndex.map((prop, key) => {
-            return (
-              <Route
-                key={key}
-                path={prop.path}
-                component={prop.component}
-              />
-            );
-          })
+          <div key={1}>
+            <HeaderContent />
+              <Switch >
+                {routesContents.routesIndex.map((prop, key) => {
+                     if (prop.redirect) {
+                      return (
+                      <Redirect from={prop.path} to={prop.pathTo} key={key} />
+                      );
+                    }
+                    else{
+                      return (
+                        <Route
+                          key={key}
+                          exact
+                          path={prop.path}
+                          component={prop.component}
+                        />
+                      );
+                    }
+                  })}
+              </Switch>
+              <FooterContent/>
+          </div>
         )
       }
     }

@@ -1,62 +1,82 @@
-import Login from "../content/SignInUp/SignInUp/Login";
-import Register from "../content/SignInUp/SignInUp/Register";
-//import LockScreen from "../content/SignInUp/SignInUp/LockScreen";
-import SignInUp from "../content/SignInUp/SignInUp";
+import LoginPage from "../content/LoginPage/LoginPage";
+import RegisterPage from "../content/RegisterPage/Register";
 import ProductPage from "../content/EcommercePage/EcommercePage";
 import DetailPage from "../content/ProductPage/ProductPage";
 import HomePage from "../content/Home/Home";
-import index from "../content/index";
-
-import { ShoppingBasket, Store, Home } from "@material-ui/icons";
+import NotFound from "../components/NotFound/NotFound";
 
 const routesIndex = [
   {
-    path: "/admin",
-    component: SignInUp
-  },
-  {
-    path: "/",
-    component: index
-  },
-];
-const routesSignInUp = [
-  {
-    redirect: true,
-    path: "/admin",
-    pathTo: "/admin/login"
-  },
-  {
-    path: "/admin/login",
-    name: "Login",
-    icon: "keyboard",
-    component: Login,
-  },
-  {
-    path: "/admin/register",
-    name: "Register",
-    icon: "user-circle",
-    component: Register
-  }
-];
-const routesContent = [
-  {
     path: "/",
     name: "Home",
-    icon: Home,
+    icon: "home",
     component: HomePage
   },
   {
     path: "/product",
     name: "Products",
-    icon: Store,
+    icon: "store",
     component: ProductPage
   },
   {
     path: "/product-detail",
     name: "Product Detail",
-    icon: ShoppingBasket,
+    icon: "shopping_basket",
     component: DetailPage
   },
+  {
+    path: "/login-page",
+    name: "Sign In",
+    icon: "fingerprint",
+    component: LoginPage
+  },
+  {
+    path: "/register-page",
+    name: "Sign Up",
+    icon: "person_add",
+    component: RegisterPage
+  },
+  {
+    path: "*",
+    component: NotFound
+  },
+  {
+    redirect: true,
+    path: "/home",
+    pathTo: "/"
+  },
+];
+const routesMenu = [
+    {
+      path: "/",
+      name: "Home",
+      icon: "home",
+      component: HomePage
+    },
+    {
+      path: "/product",
+      name: "Products",
+      icon: "store",
+      component: ProductPage
+    },
+    {
+      path: "/product-detail",
+      name: "Product Detail",
+      icon: "shopping_basket",
+      component: DetailPage
+    },
+    {
+      path: "/login-page",
+      name: "Sign In",
+      icon: "fingerprint",
+      component: LoginPage
+    },
+    {
+      path: "/register-page",
+      name: "Sign Up",
+      icon: "person_add",
+      component: RegisterPage
+    }
 ];
 
-export default { routesContent, routesSignInUp, routesIndex };
+export default {routesIndex,routesMenu};

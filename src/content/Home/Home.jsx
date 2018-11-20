@@ -53,7 +53,7 @@ class Home extends Component {
                       for the same fashion house.
                         </h4>
                     <br />
-                    <Button color="danger" size="lg">
+                    <Button color="danger">
                       Read more
                         </Button>
                     <Button justIcon color="white" simple>
@@ -139,10 +139,10 @@ class Home extends Component {
                         </h4>
                     <br />
                     <div>
-                      <Button color="white" simple size="lg">
+                      <Button color="white" simple>
                         <Share /> Share Offer
                           </Button>
-                      <Button color="danger" size="lg">
+                      <Button color="danger">
                         <ShoppingCart /> Shop now
                           </Button>
                     </div>

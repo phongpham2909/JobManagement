@@ -8,129 +8,133 @@ import GridContainer from "../../../components/Material-UI/Grid/GridContainer";
 import GridItem from "../../../components/Material-UI/Grid/GridItem";
 import Card from "../../../components/Material-UI/Card/Card";
 import CardHeader from "../../../components/Material-UI/Card/CardHeader";
+import CardBody from "../../../components/Material-UI/Card/CardBody";
 import Info from "../../../components/Material-UI/Typography/Info";
 import Danger from "../../../components/Material-UI/Typography/Danger";
+import Success from "../../../components/Material-UI/Typography/Success";
 
-import blogsStyle from "../../../assets/jss/material-ui-react/views/sections/blogsStyle";
+import blogsStyle from "../../../assets/jss/material-ui-react/views/blogPostSections/sectionSimilarStoriesStyle";
 
-import cardBlog4 from "../../../assets/img/full-screen-image-2.jpg";
-import office2 from "../../../assets/img/sunrise-phu-quoc-island-ocean.jpg";
+import cardBlog1 from "../../../assets/img/full-screen-image-2.jpg";
+import cardBlog2 from "../../../assets/img/sunrise-phu-quoc-island-ocean.jpg";
+import cardBlog3 from "../../../assets/img/image-sidebar-2.jpeg";
 
 function BlogPost({ ...props }) {
-  const { classes, ...rest } = props;
+  const { classes } = props;
   return (
-    <div className="cd-section" {...rest}>
-      <div className={classes.blog}>
-        <div className={classes.container}>
+    <div className={classes.section}>
+    <div className={classes.container}>
+      <GridContainer>
+        <GridItem md={12}>
+          <h2 className={classes.title + " " + classes.textCenter}>
+            Similar Stories
+          </h2>
+          <br />
           <GridContainer>
-            <GridItem
-              xs={12}
-              sm={10}
-              md={10}
-              className={`${classes.mlAuto} ${classes.mrAuto}`}
-            >
-              <h2 className={classes.title}>Latest Blogposts</h2>
-              <br />
-              <Card plain blog className={classes.card}>
-                <GridContainer>
-                  <GridItem xs={12} sm={5} md={5}>
-                    <CardHeader image plain>
-                      <a href="#pablito" onClick={e => e.preventDefault()}>
-                        <img src={cardBlog4} alt="..." />
-                      </a>
-                      <div
-                        className={classes.coloredShadow}
-                        style={{
-                          backgroundImage: `url(${cardBlog4})`,
-                          opacity: "1"
-                        }}
-                      />
-                    </CardHeader>
-                  </GridItem>
-                  <GridItem xs={12} sm={7} md={7}>
-                    <Info>
-                      <h6 className={classes.cardCategory}>ENTERPRISE</h6>
-                    </Info>
-                    <h3 className={classes.cardTitle}>
-                      <a href="#pablo" onClick={e => e.preventDefault()}>
-                        Autodesk looks to future of 3D printing with Project
-                        Escher
-                          </a>
-                    </h3>
-                    <p className={classes.description1}>
-                      Like so many organizations these days, Autodesk is a
-                      company in transition. It was until recently a traditional
-                      boxed software company selling licenses. Today, it’s
-                      moving to a subscription model. Yet its own business model
-                      disruption is only part of the story — and…
-                          <a href="#pablo" onClick={e => e.preventDefault()}>
-                        {" "}
-                        Read More{" "}
-                      </a>
-                    </p>
-                    <p className={classes.author}>
-                      by{" "}
-                      <a href="#pablo" onClick={e => e.preventDefault()}>
-                        <b>Mike Butcher</b>
-                      </a>{" "}
-                      , 2 days ago
-                        </p>
-                  </GridItem>
-                </GridContainer>
+            <GridItem xs={12} sm={4} md={4}>
+              <Card blog>
+                <CardHeader image>
+                  <a href="#pablo">
+                    <img src={cardBlog1} alt="..." />
+                  </a>
+                  <div
+                    className={classes.coloredShadow}
+                    style={{
+                      backgroundImage: "url(" + cardBlog1 + ")",
+                      opacity: "1"
+                    }}
+                  />
+                </CardHeader>
+                <CardBody>
+                  <Info>
+                    <h6>ENTERPRISE</h6>
+                  </Info>
+                  <h4 className={classes.cardTitle}>
+                    <a href="#pablo">
+                      Autodesk looks to future of 3D printing with Project
+                      Escher
+                    </a>
+                  </h4>
+                  <p className={classes.description}>
+                    Like so many organizations these days, Autodesk is a
+                    company in transition. It was until recently a traditional
+                    boxed software company selling licenses.
+                    <a href="#pablo"> Read More </a>
+                  </p>
+                </CardBody>
               </Card>
-              <Card plain blog className={classes.card}>
-                <GridContainer>
-                  <GridItem xs={12} sm={7} md={7}>
-                    <Danger>
-                      <h6 className={classes.cardCategory}>
-                        <TrendingUp />TRENDING
-                          </h6>
-                    </Danger>
-                    <h3 className={classes.cardTitle}>
-                      <a href="#pablo" onClick={e => e.preventDefault()}>
-                        6 insights into the French Fashion landscape
-                          </a>
-                    </h3>
-                    <p className={classes.description1}>
-                      Like so many organizations these days, Autodesk is a
-                      company in transition. It was until recently a traditional
-                      boxed software company selling licenses. Today, it’s
-                      moving to a subscription model. Yet its own business model
-                      disruption is only part of the story — and…
-                          <a href="#pablo" onClick={e => e.preventDefault()}>
-                        {" "}
-                        Read More{" "}
-                      </a>
-                    </p>
-                    <p className={classes.author}>
-                      by{" "}
-                      <a href="#pablo" onClick={e => e.preventDefault()}>
-                        <b>Mike Butcher</b>
-                      </a>{" "}
-                      , 2 days ago
-                        </p>
-                  </GridItem>
-                  <GridItem xs={12} sm={5} md={5}>
-                    <CardHeader image plain>
-                      <a href="#pablito" onClick={e => e.preventDefault()}>
-                        <img src={office2} alt="..." />
-                      </a>
-                      <div
-                        className={classes.coloredShadow}
-                        style={{
-                          backgroundImage: `url(${office2})`,
-                          opacity: "1"
-                        }}
-                      />
-                    </CardHeader>
-                  </GridItem>
-                </GridContainer>
+            </GridItem>
+            <GridItem xs={12} sm={4} md={4}>
+              <Card blog>
+                <CardHeader image>
+                  <a href="#pablo">
+                    <img src={cardBlog2} alt="..." />
+                  </a>
+                  <div
+                    className={classes.coloredShadow}
+                    style={{
+                      backgroundImage: "url(" + cardBlog2 + ")",
+                      opacity: "1"
+                    }}
+                  />
+                </CardHeader>
+                <CardBody>
+                  <Success>
+                    <h6>STARTUPS</h6>
+                  </Success>
+                  <h4 className={classes.cardTitle}>
+                    <a href="#pablo">
+                      Lyft launching cross-platform service this week
+                    </a>
+                  </h4>
+                  <p className={classes.description}>
+                    Like so many organizations these days, Autodesk is a
+                    company in transition. It was until recently a traditional
+                    boxed software company selling licenses.
+                    <a href="#pablo"> Read More </a>
+                  </p>
+                </CardBody>
+              </Card>
+            </GridItem>
+            <GridItem xs={12} sm={4} md={4}>
+              <Card blog>
+                <CardHeader image>
+                  <a href="#pablo">
+                    <img src={cardBlog3} alt="..." />
+                  </a>
+                  <div
+                    className={classes.coloredShadow}
+                    style={{
+                      backgroundImage: "url(" + cardBlog3 + ")",
+                      opacity: "1"
+                    }}
+                  />
+                </CardHeader>
+                <CardBody>
+                  <Danger>
+                    <h6>
+                      <TrendingUp /> ENTERPRISE
+                    </h6>
+                  </Danger>
+                  <h4 className={classes.cardTitle}>
+                    <a href="#pablo">
+                      6 insights into the French Fashion landscape
+                    </a>
+                  </h4>
+                  <p className={classes.description}>
+                    Like so many organizations these days, Autodesk is a
+                    company in transition. It was until recently a traditional
+                    boxed software company selling licenses.
+                    <a href="#pablo"> Read More </a>
+                  </p>
+                </CardBody>
               </Card>
             </GridItem>
           </GridContainer>
-        </div>
-      </div>
+        </GridItem>
+      </GridContainer>
     </div>
+  </div>
   );
 }
 
